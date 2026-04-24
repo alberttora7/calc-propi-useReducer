@@ -31,7 +31,7 @@ const [state, dispatch] = useReducer(orderReducer, initalState)
                   <MenuItem
                       key={item.id}
                       item={item}
-                      addItem={addItem}
+                      dispatch={dispatch}
                     />
                 ))}
           </div>
