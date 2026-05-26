@@ -5,16 +5,16 @@ import OrderTotals from "./components/OrderTotals"
 import TipForm from "./components/TipForm"
 import { menuItems} from "./data/db"
 import useOrder from "./hooks/useOrder"
-import { initalState, orderReducer} from "./reducers/order-reducer"
+import  { initalState, orderReducer} from "./reducers/order-reducer"
 
 
 
 
 function App() {
-//hooks
-const { order,tip, setTip, addItem, removeItem, placeOrder } = useOrder()
+  //hooks
+  const { order,tip, setTip, addItem, removeItem, placeOrder } = useOrder()
 
-const [state, dispatch] = useReducer(orderReducer, initalState)
+  const [state, dispatch] = useReducer(orderReducer, initalState)
 
   return (
     <>
@@ -40,10 +40,10 @@ const [state, dispatch] = useReducer(orderReducer, initalState)
         {/* consumo box */}
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
            <h2 className="font-black text-center text-4xl">Consumo</h2>
-         {order.length !== 0 ? ( 
+         {state.order.length !== 0 ? ( 
           <>
            <OrderContents
-                order = {order}
+                order = {state.order}
                 removeItem={removeItem}
               />
 
@@ -53,7 +53,7 @@ const [state, dispatch] = useReducer(orderReducer, initalState)
             />
 
             <OrderTotals
-              order={order}
+              order={state.order}
               tip={tip}
               placeOrder={placeOrder}
             />
