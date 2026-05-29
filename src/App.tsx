@@ -48,13 +48,13 @@ function App() {
               />
 
             <TipForm
-              setTip={setTip}
+              dispatch={dispatch}
               tip={tip}
             />
 
             <OrderTotals
               order={state.order}
-              tip={tip}
+              tip={state.tip}
               placeOrder={placeOrder}
             />
           </>
